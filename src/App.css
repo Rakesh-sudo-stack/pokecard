@@ -1,38 +1,87 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
+.body{
+  display:flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
 }
 
-.App-link {
-  color: #61dafb;
+
+.logo{
+  height: 20%;
+  width: 50%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.movestable tr{
+  background:rgb(157, 208, 238);
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.movestable tr:nth-child(odd){
+  background:rgb(128, 177, 233);
+}
+
+.movestable tr:first-child{
+  background:rgb(76, 76, 224);
+  line-height: 4rem;
+}
+
+thead{
+  background:url('movesimg.webp');
+  background-size: cover;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  font-size:2.5rem;
+}
+
+small{
+  position: absolute;
+  color:#ff2;
+  right: 4%;
+  top:50%;
+  transform: translate(-50%,-50%);
+}
+
+.card-title{
+  display: grid;
+  place-items: center;
+  text-transform: capitalize;
+}
+
+.inputfield{
+  position: fixed;
+  bottom: 0;
+}
+
+.statstable{
+  width: 100%;
+}
+
+.statstable tr td:nth-child(odd){
+  background:rgb(193, 193, 245);
+}
+
+.statstable tr{
+  background:rgb(151, 211, 235);
+  width: 100%;
+}
+
+.statstable tr:first-child td{
+  background:rgb(76, 76, 224);
+  width: 125%;
+}
+
+.statstable tr td{
+  width: 25%;
+  text-align: center;
 }
