@@ -17,7 +17,7 @@ function App() {
   
   const searchPokemon = () => {
     async function getData(){
-      const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
+      const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon.toLowerCase()}`);
       console.log(res);
       setPokedata((prevalue)=>{
         return {
