@@ -4,6 +4,8 @@ import pokeimg from './pokeimg.jpg';
 import axios from 'axios';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import Card from './card';
+import donkey from './donkey.jpg';
+import giratina from './giratina.png';
 
 function App() {
   const [pokemon,setPokemon] = useState("");
@@ -16,9 +18,187 @@ function App() {
   });
   
   const searchPokemon = () => {
+    if(pokemon.toLowerCase()=="ansu" || pokemon.toLowerCase()=="chandramani" || pokemon.toLowerCase()=="harshit"){
+      setPokedata((prevalue)=>{
+        return {
+        name:pokemon,
+        image:donkey,
+        moves:[
+          {
+            move:{
+              name:"Back Kick"
+            }
+          },
+          {
+            move:{
+              name:"Front Kick"
+            }
+          },
+          {
+            move:{
+              name:"Head Butt"
+            }
+          }
+        ],
+        type:'Animal',
+        stats:[
+          {
+            base_stat:0,
+            stat:{
+              name:"hp",
+            }
+          },
+          {
+            base_stat:0,
+            stat:{
+              name:"attack",
+            }
+          },
+          {
+            base_stat:0,
+            stat:{
+              name:"defense",
+            }
+          },
+          {
+            base_stat:0,
+            stat:{
+              name:"special-attack",
+            }
+          },
+          {
+            base_stat:0,
+            stat:{
+              name:"special-defense",
+            }
+          },
+          {
+            base_stat:0,
+            stat:{
+              name:"speed",
+            }
+          }
+        ]
+        }
+      });
+    }else if(pokemon.toLowerCase == "giratina"){
+      setPokedata((prevalue)=>{
+        return {
+        name:pokemon,
+        image:giratina,
+        moves:[
+          {
+            move:{
+              name:"Scary Face"
+            }
+          },
+          {
+            move:{
+              name:"Dragon Breath"
+            }
+          },
+          {
+            move:{
+              name:"Ominous Wind"
+            }
+          },
+          {
+            move:{
+              name:"Ancient Power"
+            }
+          },
+          {
+            move:{
+              name:"Slash"
+            }
+          },
+          {
+            move:{
+              name:"Shadow Sneak"
+            }
+          },
+          {
+            move:{
+              name:"Destiny Bond"
+            }
+          },
+          {
+            move:{
+              name:"Dragon Claw"
+            }
+          },
+          {
+            move:{
+              name:"Earth Power"
+            }
+          },
+          {
+            move:{
+              name:"Aura Sphere"
+            }
+          },
+          {
+            move:{
+              name:"Shadow Claw"
+            }
+          },
+          {
+            move:{
+              name:"Shadow Force"
+            }
+          },
+          {
+            move:{
+              name:"Hex"
+            }
+          }
+        ],
+        type:'dragon',
+        stats:[
+          {
+            base_stat:150,
+            stat:{
+              name:"hp",
+            }
+          },
+          {
+            base_stat:100,
+            stat:{
+              name:"attack",
+            }
+          },
+          {
+            base_stat:120,
+            stat:{
+              name:"defense",
+            }
+          },
+          {
+            base_stat:100,
+            stat:{
+              name:"special-attack",
+            }
+          },
+          {
+            base_stat:120,
+            stat:{
+              name:"special-defense",
+            }
+          },
+          {
+            base_stat:90,
+            stat:{
+              name:"speed",
+            }
+          }
+        ]
+        }
+      });
+    }else{
     async function getData(){
       const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon.toLowerCase()}`);
       console.log(res);
+      if(res.status==200){
       setPokedata((prevalue)=>{
         return {
         name:res.data.name,
@@ -29,7 +209,12 @@ function App() {
         }
       });
     }
+    else{
+      console.log(`Can't find this pokemon`)
+    }
+    }
     getData();
+  }
   }
 
   return (
