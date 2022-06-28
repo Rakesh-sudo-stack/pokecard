@@ -81,7 +81,7 @@ function App() {
         ]
         }
       });
-    }else if(pokemon.toLowerCase == "giratina"){
+    }else if(pokemon.toLowerCase() == "giratina"){
       setPokedata((prevalue)=>{
         return {
         name:pokemon,
